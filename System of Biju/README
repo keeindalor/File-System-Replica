@@ -1,0 +1,50 @@
+        --Ionut Cristian Savu, 322CB--
+            ---Tema 1 IOCLA---
+
+Voi incepe cu un mic feedback pentru tema:
+  *foarte misto, subiectul a fost interesant
+  *nu m-as fi gandit ca as putea implementa asa ceva cu lista
+
+Structurile de Dir si File erau prezente in scheletul de cod.
+In continuare, voi vorbi despre functiile implementate in ordine
+    1.alocHeadFile, functie in care doar aloc campurile structurii de File
+    2.alocHeadDir, functia in care doar aloc campurile structurii de Dir
+    3.distrList, o functie tipica listelor simplu inlantuite, in care 
+doar dezaloc si 
+rup legaturile elementelor din lista
+    4.touch, functie void in care adaugam pur si simplu un element in lista,
+concret, inseram un fisier in lista de fisiere, fie la inceput cand lista e goala,
+fie la final in momentul in care avem elemente in ea 
+    5.mkdir, functie void, face exact acelasi lucru ca si functia touch, doar ca inseram
+in lista de directoare
+    6.ls, functia de afisare a elementelor din lista de fisiere, urmate de elementele
+din lista de directoare, astfel ca afisam intai directoarele, apoi fisierele. Se realizeaza
+doar o simpla iteratie prin lista pentru a le putea afisa.
+    7.rm, functie void care sterge un element din lista de fisiere. Daca lista e goala, nu avem
+ce sterge din ea, dupa care verificam daca primul elemet este de sters, iar mai apoi
+parcurgem lista si cautam elementul de eliminat. Cand il gasim, distrugem legaturile si eliberam
+memoria.
+    8.rmAll, functie recursiva, care parcurge toata lista de directoare cu scopul de
+a distruge listele de fisiere si a elibera memoria.
+    9.rmdir, functie void care are ca scop eliminarea unui director, impreuna cu listele de directoare
+si de fisiere din interiorul sau. Functia rmdir se foloseste de functiile rmAll si distrList. Astfel
+parcurgem lista de directoare, cautam directorul de eliminat, iar in momentul in care il gasim, desfacem
+legaturile si folosim functia rmAll pe capul de lista de directoare din directorul de eliminat, distrList
+pe pozitia pe care ne aflam (adica cea a directorului de eliminat), iar mai aapoi eliberam memoria numelui 
+si a variabilei temp cu care am parcurs lista.
+    10.rmdir_aux face exact acelasi lucru ca si functia rmdir, insa nu distruge listele de directoare
+si fisiere, pentru a nu le pierde in momentul in care vom folosi aceasta functie in *spoiler alert*
+functia mv.
+    11.pwd, functie char, o functie recursiva care construieste un string in care concatenam calea
+pana la directorul curent.
+    12.stop, functia in interiorul careia distrugem intreaga ierarhie de directoare si 
+fisiere pornind de la directorul home
+    13.tree, functie void recursiva, in care afisam directoarele si fisierele din 
+interiorul acestora, formatandaceasta ierarhie cu 4 spatiuri intre ele 
+    14.mv este cea mai complexa functie din toata tema, caci se foloseste atat de rmdir si mkdir, 
+cat si de touch si rm. initial,
+cautam numele nou in care vrem sa redenumim fisierul curent. Dupa care, parcurgem din nou listele
+pentru a cauta numele vechi.
+In cazul directoarelor memoram si capetele de lista de fisiere si directoare, pentru a 
+putea adauga la final directorul nou, 
+iar in cazul fisierelor, doar folosim rm si touch, si le adaugam la final
